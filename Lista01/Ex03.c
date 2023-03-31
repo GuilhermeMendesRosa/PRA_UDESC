@@ -11,17 +11,19 @@ o esforço para ordenação do vetor).
 ○ Exemplo 2, dado v = [1,2,0], a saída esperada é 3
 */
 
-int compara(const void *a, const void *b) {
+int comparator(const void *a, const void *b) {
     return *(int *) a - *(int *) b;
 }
 
 void main() {
+
     int size = 5;
     int array[] = {2, 9, 5, 1, 5};
 
-    qsort(array, size, sizeof(int), compara);
+    qsort(array, size, sizeof(int), comparator);
 
     int result = array[size - 1] + 1;
 
     printf("%d", result);
+
 }

@@ -12,13 +12,10 @@ void main() {
                 continue;
             }
 
-            if (array[i] + array[j] != k) {
-                continue;
+            if (array[i] + array[j] == k) {
+                printf("True");
+                return;
             }
-
-            printf("True");
-
-            return;
         }
     }
 
