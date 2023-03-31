@@ -1,4 +1,0 @@
-/home/guilherme/CodeTools/CLion-2022.3.1/clion-2022.3.1/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/guilherme/CodeTools/CLion-2022.3.1/clion-2022.3.1/bin/ninja/linux/ninja -G Ninja -S "/home/guilherme/Área de Trabalho/Udesc/PRA/Projects/PRA_UDESC/Lista01" -B "/home/guilherme/Área de Trabalho/Udesc/PRA/Projects/PRA_UDESC/Lista01/cmake-build-debug"
--- Configuring done
--- Generating done
--- Build files have been written to: /home/guilherme/Área de Trabalho/Udesc/PRA/Projects/PRA_UDESC/Lista01/cmake-build-debug

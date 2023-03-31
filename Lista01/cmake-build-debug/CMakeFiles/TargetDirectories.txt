@@ -1,3 +1,0 @@
-/home/guilherme/Área de Trabalho/Udesc/PRA/Projects/PRA_UDESC/Lista01/cmake-build-debug/CMakeFiles/Lista01.dir
-/home/guilherme/Área de Trabalho/Udesc/PRA/Projects/PRA_UDESC/Lista01/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/guilherme/Área de Trabalho/Udesc/PRA/Projects/PRA_UDESC/Lista01/cmake-build-debug/CMakeFiles/rebuild_cache.dir

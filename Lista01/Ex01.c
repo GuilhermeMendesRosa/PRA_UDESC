@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void main1() {
+void main() {
 
     int k = 9;
     int size = 4;
