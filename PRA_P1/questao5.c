@@ -35,14 +35,15 @@ void main() {
             int valor1 = matriz[i - 1][j] + 1;
             int valor2 = matriz[i][j - 1] + 1;
             int valor3 = matriz[i - 1][j - 1] + custo;
-            int menorValor = valor1;
 
-            if (valor3 < menorValor) {
-                menorValor = valor3;
-            }
+            int menorValor = valor1;
 
             if (valor2 < menorValor) {
                 menorValor = valor2;
+            }
+
+            if (valor3 < menorValor) {
+                menorValor = valor3;
             }
 
             matriz[i][j] = menorValor;
