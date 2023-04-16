@@ -27,10 +27,7 @@ void main() {
 
     for (int i = 1; i < tamanhoS1; i++) {
         for (int j = 0; j < tamanhoS2; j++) {
-            int custo = 0;
-            if (string1[i] != string2[j]) {
-                custo = 1;
-            }
+            int custo = (string1[i] != string2[j]) ? 1 : 0;
 
             int valor1 = matriz[i - 1][j] + 1;
             int valor2 = matriz[i][j - 1] + 1;
