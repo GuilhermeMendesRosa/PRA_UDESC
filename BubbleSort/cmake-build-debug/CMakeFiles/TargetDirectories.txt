@@ -1,3 +1,0 @@
-/home/guilhermerosa/CodeProjects/PRA_UDESC/BubbleSort/cmake-build-debug/CMakeFiles/BubbleSort.dir
-/home/guilhermerosa/CodeProjects/PRA_UDESC/BubbleSort/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/guilhermerosa/CodeProjects/PRA_UDESC/BubbleSort/cmake-build-debug/CMakeFiles/rebuild_cache.dir

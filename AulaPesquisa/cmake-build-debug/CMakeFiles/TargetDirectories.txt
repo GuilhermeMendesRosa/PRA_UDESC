@@ -1,3 +1,0 @@
-/home/guilhermerosa/CodeProjects/PRA_UDESC/AulaPesquisa/cmake-build-debug/CMakeFiles/AulaPesquisa.dir
-/home/guilhermerosa/CodeProjects/PRA_UDESC/AulaPesquisa/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/guilhermerosa/CodeProjects/PRA_UDESC/AulaPesquisa/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -3,15 +3,18 @@
 #include <math.h>
 #include <time.h>
 
-int compara(const void *a, const void *b) {
-    return *(int *) a - *(int *) b;
+int compara(const void *a, const void *b)
+{
+    return *(int *)a - *(int *)b;
 }
 
-int *geraVetor(int n) {
+int *geraVetor(int n)
+{
     int *v = malloc(sizeof(int) * n);
     int i;
 
-    for (i = 0; i < n; i++) {
+    for (i = 0; i < n; i++)
+    {
         v[i] = rand() % n;
     }
 
@@ -20,93 +23,116 @@ int *geraVetor(int n) {
     return v;
 }
 
-int pesquisaSequencial(int chave, int v[], int n) {
+int pesquisaSequencial(int chave, int v[], int n)
+{
     int contador = 1;
     int i;
 
-    for (i = 0; i < n; i++) {
+    for (i = 0; i < n; i++)
+    {
         contador++;
-        if (v[i] == chave) {
+        if (v[i] == chave)
+        {
             return contador;
         }
         contador++;
     }
 
-    return contador; //índice inválido
+    return contador; // índice inválido
 }
 
-int pesquisaSequencialSentinela(int chave, int v[], int n) {
+int pesquisaSequencialSentinela(int chave, int v[], int n)
+{
     int contador = 1, i = 0;
-    v[n] = chave; //A última posição do vetor possui o sentinela
-    while (v[i] != chave) {
+    v[n] = chave; // A última posição do vetor possui o sentinela
+    while (v[i] != chave)
+    {
         i++;
         contador++;
     }
     contador++;
-    if (i < n) {
+    if (i < n)
+    {
         return contador;
     }
-    return contador; //Índice inválido
+    return contador; // Índice inválido
 }
 
-int pesquisaBinaria(int chave, int v[], int n) {
+int pesquisaBinaria(int chave, int v[], int n)
+{
     int inicio = 0, fim = n - 1, contador = 1;
 
-    while (inicio <= fim) {
+    while (inicio <= fim)
+    {
         int meio = (inicio + fim) / 2;
 
         contador++;
-        if (chave == v[meio]) {
+        if (chave == v[meio])
+        {
             return contador;
-        } else if (chave < v[meio]) {
+        }
+        else if (chave < v[meio])
+        {
             fim = meio - 1;
-        } else {
+        }
+        else
+        {
             inicio = meio + 1;
         }
 
         contador += 2;
     }
 
-    return contador; //Índice inválido
+    return contador; // Índice inválido
 }
 
-int pesquisaInterpolacao(int chave, int v[], int n) {
+int pesquisaInterpolacao(int chave, int v[], int n)
+{
     int inicio = 0, meio, fim = n - 1, contador = 1;
 
-    if (v[inicio] == v[fim]) {
+    if (v[inicio] == v[fim])
+    {
         contador++;
         return v[inicio] == chave ? contador : contador;
     }
 
     contador += 3;
 
-    while (inicio <= fim && chave >= v[inicio] && chave <= v[fim]) {
+    while (inicio <= fim && chave >= v[inicio] && chave <= v[fim])
+    {
         contador++;
 
-        if (inicio == fim) {
+        if (inicio == fim)
+        {
             contador++;
             return v[inicio] == chave ? contador : contador;
         }
 
-        meio = inicio + (((double) (fim - inicio) / (v[fim] - v[inicio])) * (chave - v[inicio]));
+        meio = inicio + (((double)(fim - inicio) / (v[fim] - v[inicio])) * (chave - v[inicio]));
 
         contador++;
 
-        if (chave == v[meio]) {
+        if (chave == v[meio])
+        {
             return contador;
-        } else if (chave < v[meio]) {
+        }
+        else if (chave < v[meio])
+        {
             fim = meio - 1;
-        } else {
+        }
+        else
+        {
             inicio = meio + 1;
         }
 
         contador += 4;
     }
 
-    return contador; //Índice inválido
+    return contador; // Índice inválido
 }
 
-int main() {
+int main()
+{
     int n = 1000000;
     int *v = geraVetor(n + 1);
     int i;
@@ -117,7 +143,8 @@ int main() {
     int mediaInterpolacao = 0;
     int repeticoes = 30;
 
-    for (i = 0; i < repeticoes; i++) {
+    for (i = 0; i < repeticoes; i++)
+    {
         int medio = rand() % n;
         mediaSequencial += pesquisaSequencial(medio, v, n);
         mediaSentinela += pesquisaSequencialSentinela(medio, v, n);
@@ -130,15 +157,34 @@ int main() {
     mediaBinaria /= repeticoes;
     mediaInterpolacao /= repeticoes;
 
-    printf("Pesquisa sequencial\n");
-    printf("Caso medio: %d\n\n", mediaSequencial);
+    // Gravação dos dados em arquivo
+    FILE *arquivo;
+    arquivo = fopen("dados.txt", "w");
 
-    printf("Pesquisa sequencial com sentinela\n");
-    printf("Caso medio: %d\n\n", mediaSentinela);
+    if (arquivo == NULL)
+    {
+        printf("Erro ao abrir o arquivo.");
+        return 1;
+    }
 
-    printf("Pesquisa binaria\n");
-    printf("Caso medio: %d\n\n", mediaBinaria);
+    fprintf(arquivo, "Pesquisa sequencial\n");
+    fprintf(arquivo, "Caso medio: %d\n\n", mediaSequencial);
 
-    printf("Pesquisa interpolacao\n");
-    printf("Caso medio: %d\n\n", mediaInterpolacao);
+    fprintf(arquivo, "Pesquisa sequencial com sentinela\n");
+    fprintf(arquivo, "Caso medio: %d\n\n", mediaSentinela);
+
+    fprintf(arquivo, "Pesquisa binaria\n");
+    fprintf(arquivo, "Caso medio: %d\n\n", mediaBinaria);
+
+    fprintf(arquivo, "Pesquisa interpolacao\n");
+    fprintf(arquivo, "Caso medio: %d\n\n", mediaInterpolacao);
+
+    fclose(arquivo);
+
+    printf("Dados gravados com sucesso no arquivo dados.txt.\n");
+
+    // Libera memória alocada para o vetor
+    free(v);
+
+    return 0;
 }
